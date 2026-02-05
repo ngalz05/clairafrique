@@ -16,7 +16,7 @@
       </p>
 
       <div class="heroBtns">
-        <button class="btn" onclick="location.href='{{ route('catalogue.livres') }}'">Explorer la librairie</button>
+        <button class="btn" onclick="location.href='{{ route('cataloguelivres') }}'">Explorer la librairie</button>
         <button class="ghost" onclick="location.href='{{ route('catalogue.papeterie') }}'">Voir la papeterie</button>
         <button class="ghost" onclick="location.href='{{ route('evenements') }}'">Calendrier des événements</button>
       </div>
@@ -41,7 +41,7 @@
 <section class="section">
   <div class="secHead">
     <h2>À la une</h2>
-    <a href="{{ route('catalogue.livres') }}">Voir les nouveautés →</a>
+    <a href="{{ route('cataloguelivres') }}">Voir les nouveautés →</a>
   </div>
 
   <div class="grid3">
@@ -53,7 +53,7 @@
         <p class="muted">Une sélection fraîche de livres et collections.</p>
         <div class="row">
           <span class="muted">Cette semaine</span>
-          <button class="btnMini" onclick="location.href='{{ route('catalogue.livres') }}'">Voir</button>
+          <button class="btnMini" onclick="location.href='{{ route('cataloguelivres') }}'">Voir</button>
         </div>
       </div>
     </article>
@@ -79,7 +79,7 @@
         <p class="muted">Des titres incontournables recommandés.</p>
         <div class="row">
           <span class="muted">Sélection</span>
-          <button class="btnMini" onclick="location.href='{{ route('catalogue.livres') }}'">Voir</button>
+          <button class="btnMini" onclick="location.href='{{ route('cataloguelivres') }}'">Voir</button>
         </div>
       </div>
     </article>
@@ -108,7 +108,7 @@
 <section class="section">
   <div class="secHead">
     <h2>Librairie — Sélection</h2>
-    <a href="{{ route('catalogue.livres') }}">Tout le catalogue →</a>
+    <a href="{{ route('cataloguelivres') }}">Tout le catalogue →</a>
   </div>
 
   <div class="grid3">
