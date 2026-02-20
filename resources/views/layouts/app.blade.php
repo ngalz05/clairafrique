@@ -132,8 +132,7 @@
                     <img src="{{ asset('icons/panier.png') }}" alt="Panier" width="20" height="20">
                     Panier
                 </a>
-                <button class="pillBtn">Connexion</button>
-            </div>
+                <a href="{{ route('login') }}" class="pillBtn">Connexion</a>            </div>
         </div>
     </div>
 

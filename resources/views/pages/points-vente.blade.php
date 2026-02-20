@@ -16,84 +16,109 @@
 
 <section class="section">
 
-  <div class="heroCard" style="background:linear-gradient(135deg,rgba(31,122,77,.08),rgba(255,255,255,.95));">
-    <h3 style="margin:0 0 10px;color:var(--g2);">Trouver rapidement</h3>
-    <p class="muted" style="margin:0;">
-      Deux points de vente à Dakar : <b>Université</b> et <b>Indépendance</b>.
-    </p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+  {{-- HERO --}}
+  <div class="pvHero heroCard">
+    <div>
+      <h3 class="pvHeroTitle">Trouver rapidement</h3>
+      <p class="muted pvHeroText">
+        Deux points de vente à Dakar : <b>Université</b> et <b>Indépendance</b>.
+      </p>
+    </div>
+    <div class="pvHeroBtns">
       <a class="btn" href="{{ route('contact') }}">✉️ Contacter</a>
       <a class="ghost" href="{{ route('faq') }}">❓ FAQ</a>
     </div>
   </div>
 
-  <div class="secHead" style="margin-top:18px;">
+
+  {{-- ADRESSES (NOUVELLE DISPOSITION) --}}
+  <div class="secHead pvHead">
     <h2>Nos adresses</h2>
     <a href="{{ route('contact') }}">Besoin d’un conseil ? →</a>
   </div>
 
-  <div class="grid3" style="grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px;">
+  <div class="pvStores">
 
     {{-- Université --}}
-    <article class="card">
-      <div class="thumb" style="height:180px;">Carte / Photo</div>
-      <div class="body">
-        <span class="tag">Université</span>
-        <h3 style="margin:10px 0 6px;">ClairAfrique Université</h3>
-        <p class="muted">Avenue de l’Université, Dakar</p>
-
-        <div style="margin:12px 0;">
-          <p class="muted" style="margin:0;"><b>📞</b> (+221) 33 864 69 40</p>
-          <p class="muted" style="margin:6px 0 0;"><b>✉️</b> clairafuniv@clairafrique.com</p>
-          <p class="muted" style="margin:6px 0 0;"><b>🕒</b> Lun – Sam : 09h00 – 19h00</p>
+    <article class="pvStore card">
+      <div class="pvStoreInfo body">
+        <div class="pvStoreTop">
+          <span class="tag">Université</span>
+          <h3 class="pvStoreTitle">ClairAfrique Université</h3>
+          <p class="muted">Avenue de l’Université, Dakar</p>
         </div>
 
-        <div class="row">
-          <span class="muted">Retrait possible</span>
+        <div class="pvStoreMeta">
+          <div class="pvMetaItem"><b>📞</b> (+221) 33 864 69 40</div>
+          <div class="pvMetaItem"><b>✉️</b> clairafuniv@clairafrique.com</div>
+          <div class="pvMetaItem"><b>🕒</b> Lun – Sam : 09h00 – 19h00</div>
+          <div class="pvMetaItem muted">✅ Retrait possible</div>
+        </div>
+
+        <div class="pvStoreBtns">
           <a class="btnMini" href="{{ route('contact') }}">Écrire</a>
+          <a class="ghost" target="_blank" rel="noopener"
+             href="https://www.google.com/maps?q=Avenue%20de%20l%E2%80%99Universit%C3%A9,%20Dakar">
+            Itinéraire
+          </a>
         </div>
+      </div>
+
+      <div class="pvStoreMap">
+        <iframe
+          src="https://www.google.com/maps?q=Avenue%20de%20l%E2%80%99Universit%C3%A9,%20Dakar&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
       </div>
     </article>
 
     {{-- Indépendance --}}
-    <article class="card">
-      <div class="thumb" style="height:180px;">Carte / Photo</div>
-      <div class="body">
-        <span class="tag">Indépendance</span>
-        <h3 style="margin:10px 0 6px;">ClairAfrique Indépendance</h3>
-        <p class="muted">Boulevard de l’Indépendance, Dakar</p>
-
-        <div style="margin:12px 0;">
-          <p class="muted" style="margin:0;"><b>📞</b> (+221) 33 822 21 69</p>
-          <p class="muted" style="margin:6px 0 0;"><b>✉️</b> clairafinde@clairafrique.com</p>
-          <p class="muted" style="margin:6px 0 0;"><b>🕒</b> Lun – Sam : 09h00 – 18h30</p>
+    <article class="pvStore card">
+      <div class="pvStoreInfo body">
+        <div class="pvStoreTop">
+          <span class="tag">Indépendance</span>
+          <h3 class="pvStoreTitle">ClairAfrique Indépendance</h3>
+          <p class="muted">Boulevard de l’Indépendance, Dakar</p>
         </div>
 
-        <div class="row">
-          <span class="muted">Retrait possible</span>
+        <div class="pvStoreMeta">
+          <div class="pvMetaItem"><b>📞</b> (+221) 33 822 21 69</div>
+          <div class="pvMetaItem"><b>✉️</b> clairafinde@clairafrique.com</div>
+          <div class="pvMetaItem"><b>🕒</b> Lun – Sam : 09h00 – 18h30</div>
+          <div class="pvMetaItem muted">✅ Retrait possible</div>
+        </div>
+
+        <div class="pvStoreBtns">
           <a class="btnMini" href="{{ route('contact') }}">Écrire</a>
+          <a class="ghost" target="_blank" rel="noopener"
+             href="https://www.google.com/maps?q=Boulevard%20de%20l%E2%80%99Ind%C3%A9pendance,%20Dakar">
+            Itinéraire
+          </a>
         </div>
+      </div>
+
+      <div class="pvStoreMap">
+        <iframe
+          src="https://www.google.com/maps?q=Boulevard%20de%20l%E2%80%99Ind%C3%A9pendance,%20Dakar&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
       </div>
     </article>
 
   </div>
 
-  {{-- Mini section “infos pratiques” --}}
-  <div class="grid3" style="margin-top:18px;grid-template-columns:repeat(3,1fr);gap:16px;">
-    <div class="card">
-      <div class="body">
-        <span class="tag">Conseil</span>
-        <h3 style="margin:10px 0 6px;">Réservation</h3>
-        <p class="muted" style="margin:0;">Appelez ou écrivez pour vérifier la disponibilité avant de venir.</p>
-      </div>
-    </div>
+  {{-- INFOS --}}
+  <div class="pvInfosGrid">
     <div class="card">
       <div class="body">
         <span class="tag">Commande</span>
-        <h3 style="margin:10px 0 6px;">Retrait rapide</h3>
+        <h3 style="margin:10px 0 6px;">Commande en ligne</h3>
         <p class="muted" style="margin:0;">Commandez en ligne et retirez en magasin selon disponibilité.</p>
       </div>
     </div>
+
     <div class="card">
       <div class="body">
         <span class="tag">Support</span>
@@ -114,10 +139,87 @@
   .titleRow{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:8px}
   h1{margin:0;font-size:30px;letter-spacing:-.4px}
   .subtitle{margin:6px 0 0;color:var(--mut);line-height:1.6}
+  .pvHead{margin-top:18px}
+
+  /* HERO */
+  .pvHero{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    background:linear-gradient(135deg,rgba(31,122,77,.08),rgba(255,255,255,.95));
+  }
+  .pvHeroTitle{margin:0 0 8px;color:var(--g2)}
+  .pvHeroText{margin:0}
+  .pvHeroBtns{display:flex;gap:10px;flex-wrap:wrap}
+
+  /* MAP TOP (optionnel) */
+  .pvMapTopBlock{
+    margin-top:14px;
+    background:#fff;
+    border:1px solid rgba(17,24,39,.08);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+  }
+  .pvMapHead{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px 14px;
+    border-bottom:1px solid rgba(17,24,39,.06);
+    background:linear-gradient(135deg,rgba(31,122,77,.08),rgba(255,255,255,.98));
+  }
+  .pvH2{margin:0;font-size:18px;color:var(--g2);font-weight:950}
+  .pvMapLink{font-weight:900;color:var(--g2);font-size:13px}
+  .pvMapWrap{height:320px}
+  .pvMapWrap iframe{width:100%;height:100%;border:0;display:block}
+
+  /* STORES (nouvelle disposition) */
+  .pvStores{
+    margin-top:12px;
+    display:grid;
+    gap:16px;
+  }
+  .pvStore{
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    overflow:hidden;
+  }
+  .pvStoreTitle{margin:10px 0 6px}
+  .pvStoreMeta{
+    margin-top:12px;
+    display:grid;
+    gap:8px;
+  }
+  .pvMetaItem{font-size:14px;color:#111827}
+  .pvStoreBtns{
+    margin-top:14px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .pvStoreMap{
+    border-left:1px solid rgba(17,24,39,.06);
+    background:#fff;
+  }
+  .pvStoreMap iframe{
+    width:100%;
+    height:100%;
+    min-height:260px;
+    border:0;
+    display:block;
+  }
+
+  /* INFOS GRID */
+  .pvInfosGrid{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
 
   @media(max-width:980px){
-    .grid3[style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr!important;}
-    .grid3[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
+    .pvHero{flex-direction:column;align-items:flex-start}
+    .pvInfosGrid{grid-template-columns:1fr}
+    .pvStore{grid-template-columns:1fr}
+    .pvStoreMap{border-left:0;border-top:1px solid rgba(17,24,39,.06)}
+    .pvStoreMap iframe{min-height:240px}
   }
 </style>
 @endpush

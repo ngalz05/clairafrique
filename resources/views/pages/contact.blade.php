@@ -80,9 +80,13 @@
         <div class="body">
           <h3>Suivez-nous</h3>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="ghost">📘 Facebook</button>
-            <button class="ghost">📸 Instagram</button>
-            <button class="ghost">💼 LinkedIn</button>
+            <a 
+              class="ghost" 
+              href="https://www.instagram.com/librairieclaireafrique?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+              target="_blank" 
+              rel="noopener">
+              📸 Instagram
+            </a>
           </div>
         </div>
       </div>
