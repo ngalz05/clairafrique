@@ -24,7 +24,6 @@
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
       <a class="btn" href="{{ route('contact') }}">✉️ Contacter</a>
       <a class="ghost" href="{{ route('faq') }}">❓ FAQ</a>
-      <a class="ghost" href="{{ route('recherche') }}">🔎 Rechercher un produit</a>
     </div>
   </div>
 

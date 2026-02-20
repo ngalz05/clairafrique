@@ -3,120 +3,270 @@
 @section('title', 'Créer un compte - ClairAfrique')
 
 @section('content')
-<section class="pageHead">
-  <div class="crumbs">Accueil / <b>Créer un compte</b></div>
-  <div class="titleRow">
-    <div>
-      <h1>Créer un compte</h1>
-      <p class="subtitle">Inscrivez-vous pour commander plus facilement</p>
+
+<section class="authPage">
+
+    <div class="authBox">
+
+        <h1>Créer un compte</h1>
+        <p class="subtitle">Inscrivez-vous pour commander plus rapidement</p>
+
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            {{-- Nom --}}
+            <div class="inputGroup">
+                <label for="name">Nom complet</label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Nom et prénom"
+                    value="{{ old('name') }}"
+                    required
+                    autocomplete="name"
+                >
+            </div>
+
+            {{-- Email --}}
+            <div class="inputGroup">
+                <label for="email">Email</label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="nom@email.com"
+                    value="{{ old('email') }}"
+                    required
+                    autocomplete="email"
+                >
+            </div>
+
+            {{-- Téléphone --}}
+            <div class="inputGroup">
+                <label for="phone">Téléphone</label>
+                <input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    placeholder="+221 XX XXX XX XX"
+                    value="{{ old('phone') }}"
+                    autocomplete="tel"
+                >
+            </div>
+
+            {{-- Mot de passe --}}
+            <div class="inputGroup">
+                <label for="password">Mot de passe</label>
+                <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="new-password"
+                >
+            </div>
+
+            {{-- Confirmation --}}
+            <div class="inputGroup">
+                <label for="password_confirmation">Confirmer le mot de passe</label>
+                <input
+                    id="password_confirmation"
+                    type="password"
+                    name="password_confirmation"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="new-password"
+                >
+            </div>
+
+            {{-- Conditions --}}
+            <label class="terms">
+                <input type="checkbox" required>
+                <span>
+                    J’accepte les
+                    <a href="{{ route('conditions-utilisation') }}">conditions d’utilisation</a>
+                    et la
+                    <a href="{{ route('politique-confidentialite') }}">politique de confidentialité</a>
+                </span>
+            </label>
+
+            {{-- Bouton --}}
+            <button type="submit" class="loginBtn">
+                Créer mon compte
+            </button>
+
+            {{-- Lien login --}}
+            <div class="register">
+                Déjà un compte ?
+                <a href="{{ route('login') }}">Se connecter</a>
+            </div>
+
+        </form>
+
     </div>
-  </div>
+
 </section>
 
-<section class="section">
-  <div style="max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
-
-    {{-- Formulaire --}}
-    <div class="heroCard">
-      <h3 style="margin:0 0 16px;">Inscription</h3>
-
-      <form method="POST" action="#">
-        @csrf
-
-        <div class="field">
-          <label>Nom complet *</label>
-          <input type="text" name="name" required placeholder="Nom et prénom" autocomplete="name">
-        </div>
-
-        <div class="field">
-          <label>Email *</label>
-          <input type="email" name="email" required placeholder="exemple@email.com" autocomplete="email">
-        </div>
-
-        <div class="field">
-          <label>Téléphone</label>
-          <input type="tel" name="phone" placeholder="+221 XX XXX XX XX" autocomplete="tel">
-        </div>
-
-        <div class="field">
-          <label>Mot de passe *</label>
-          <input type="password" name="password" required placeholder="••••••••" autocomplete="new-password">
-        </div>
-
-        <div class="field">
-          <label>Confirmer le mot de passe *</label>
-          <input type="password" name="password_confirmation" required placeholder="••••••••" autocomplete="new-password">
-        </div>
-
-        <label style="display:flex;align-items:flex-start;gap:10px;margin-top:12px;font-size:13px;color:var(--mut);font-weight:900;line-height:1.5;">
-          <input type="checkbox" required style="width:16px;height:16px;margin-top:2px;">
-          J’accepte les <a href="{{ route('cgv') }}" style="color:var(--g2);font-weight:950;">conditions</a> et la
-          <a href="{{ route('privacy') }}" style="color:var(--g2);font-weight:950;">politique de confidentialité</a>.
-        </label>
-
-        <button type="submit" class="btn" style="width:100%;margin-top:16px;padding:14px;">
-          Créer mon compte
-        </button>
-
-        <p class="muted" style="margin:14px 0 0;text-align:center;">
-          Déjà un compte ?
-          <a href="{{ route('login') }}" style="font-weight:950;color:var(--g2);">Se connecter</a>
-        </p>
-      </form>
-    </div>
-
-    {{-- Bloc infos --}}
-    <div>
-      <div class="card" style="margin-bottom:16px;">
-        <div class="body">
-          <h3 style="margin:0 0 10px;color:var(--g2);">Avantages</h3>
-          <ul class="check">
-            <li>Checkout plus rapide</li>
-            <li>Suivi des commandes</li>
-            <li>Historique d’achats</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="body">
-          <h3 style="margin:0 0 10px;color:var(--g2);">Sécurité</h3>
-          <p class="muted" style="margin:0;">
-            Vos informations sont utilisées uniquement pour gérer vos commandes et votre compte.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 @endsection
+
 
 @push('styles')
 <style>
-  .pageHead{padding:18px 0 6px}
-  .crumbs{color:var(--mut);font-size:13px}
-  .titleRow{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:8px}
-  h1{margin:0;font-size:30px;letter-spacing:-.4px}
-  .subtitle{margin:6px 0 0;color:var(--mut);line-height:1.6}
 
-  .field{display:flex;flex-direction:column;gap:6px;margin-top:14px}
-  .field label{font-size:13px;color:var(--mut);font-weight:900}
-  .field input{
-    border:1px solid rgba(17,24,39,.10);
-    border-radius:14px;
-    padding:12px;
-    outline:none;
+/* PAGE */
+.authPage{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+    background:
+        radial-gradient(circle at top, #e8f5ee 0%, transparent 40%),
+        #f9fafb;
+}
+
+/* BOX */
+.authBox{
+    width:100%;
+    max-width:460px;
     background:#fff;
-    font-size:14px;
-  }
-  .field input:focus{
-    border-color:rgba(31,122,77,.35);
-    box-shadow:0 0 0 4px rgba(31,122,77,.10);
-  }
+    border-radius:26px;
+    padding:36px 34px;
+    border:1px solid rgba(0,0,0,.05);
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.08),
+        0 10px 20px rgba(0,0,0,.05);
+    animation: fadeUp .6s ease;
+}
 
-  @media (max-width:980px){
-    section > div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
-  }
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.authBox h1{
+    margin:0;
+    font-size:30px;
+    letter-spacing:-.5px;
+    color:#111827;
+}
+
+.subtitle{
+    margin:8px 0 24px;
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* INPUTS */
+.inputGroup{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-top:18px;
+}
+
+.inputGroup label{
+    font-size:12px;
+    font-weight:800;
+    color:#374151;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+}
+
+.inputGroup input{
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:14px 16px;
+    font-size:14px;
+    background:#fafafa;
+    transition:.25s;
+}
+
+.inputGroup input::placeholder{
+    color:#9ca3af;
+}
+
+.inputGroup input:focus{
+    background:#fff;
+    border-color:#1f7a4d;
+    box-shadow:0 0 0 5px rgba(31,122,77,.15);
+    outline:none;
+}
+
+/* TERMS */
+.terms{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+    font-size:13px;
+    line-height:1.5;
+    color:#4b5563;
+}
+
+.terms input{
+    accent-color:#1f7a4d;
+    transform:translateY(2px);
+}
+
+.terms a{
+    color:#1f7a4d;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.terms a:hover{
+    text-decoration:underline;
+}
+
+/* BUTTON */
+.loginBtn{
+    width:100%;
+    margin-top:24px;
+    background:linear-gradient(135deg,#1f7a4d,#17633f);
+    color:#fff;
+    border:none;
+    padding:16px;
+    border-radius:18px;
+    font-weight:900;
+    letter-spacing:.3px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.loginBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(31,122,77,.35);
+}
+
+.loginBtn:active{
+    transform:none;
+}
+
+/* LOGIN LINK */
+.register{
+    text-align:center;
+    margin-top:22px;
+    font-size:14px;
+    color:#6b7280;
+}
+
+.register a{
+    color:#1f7a4d;
+    font-weight:800;
+    text-decoration:none;
+}
+
+.register a:hover{
+    text-decoration:underline;
+}
+
 </style>
 @endpush

@@ -10,89 +10,104 @@
 
     <style>
         /* ================= NAV ================= */
-        .main-nav{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            gap:20px;
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        .nav-left,.nav-right{
-            display:flex;
-            align-items:center;
-            gap:22px;
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Liens et boutons du menu : style uniforme */
+        .nav-left a,
+        .nav-right a,
+        .drop > button {
+            all: unset;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            color: #333;
+            text-decoration: none;
+            transition: background .2s, color .2s;
+            white-space: nowrap;
+        }
+
+        .nav-left a:hover,
+        .nav-right a:hover,
+        .drop:hover > button {
+            background: rgba(31, 122, 77, .10);
+            color: var(--g2, #1f7a4d);
         }
 
         /* ================= DROPDOWN ================= */
-        .drop{ position:relative; }
-
-        .drop>button{
-            all:unset;
-            cursor:pointer;
-            font-weight:700;
-            padding:10px 14px;
-            border-radius:14px;
-        }
-
-        .drop:hover>button{
-            background:rgba(31,122,77,.10);
-            color:var(--g2);
-        }
+        .drop { position: relative; }
 
         /* ================= MEGA MENU ================= */
-        .dropdown{
-            position:absolute;
-            top:55px;
-            left:0;
-            width:760px;
-            background:#fff;
-            border-radius:18px;
-            padding:22px;
-            display:none;
-            box-shadow:0 20px 40px rgba(0,0,0,.12);
-            z-index:100;
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 760px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            display: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+            z-index: 100;
         }
 
-        .drop:hover .dropdown{ display:block; }
+        .drop:hover .dropdown { display: block; }
 
-        .dropdown-grid{
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:18px;
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
         /* ================= CATEGORY BOX ================= */
-        .cat-box{
-            border:1px solid #e5e7eb;
-            border-radius:16px;
-            padding:14px;
-            transition:.25s;
-            background:#fafafa;
+        .cat-box {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 14px;
+            transition: .25s;
+            background: #fafafa;
         }
 
-        .cat-box:hover{
-            background:#fff;
-            border-color:var(--g);
-            box-shadow:0 8px 18px rgba(0,0,0,.08);
+        .cat-box:hover {
+            background: #fff;
+            border-color: var(--g, #1f7a4d);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
         }
 
-        .cat-title{
-            font-weight:800;
-            margin-bottom:10px;
-            color:var(--g2);
+        .cat-title {
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--g2, #1f7a4d);
         }
 
-        .cat-box a{
-            display:block;
-            padding:6px 8px;
-            border-radius:10px;
-            font-weight:600;
-            color:#333;
+        .cat-box a {
+            display: block;
+            padding: 6px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            transition: background .2s, color .2s;
         }
 
-        .cat-box a:hover{
-            background:var(--gl);
-            color:var(--g2);
+        .cat-box a:hover {
+            background: var(--gl, #e8f5ee);
+            color: var(--g2, #1f7a4d);
         }
     </style>
 </head>
@@ -113,7 +128,10 @@
             </div>
 
             <div style="display:flex;gap:10px;">
-                <a href="{{ route('panier') }}" class="pillBtn">🛒 Panier</a>
+                <a href="{{ route('panier') }}" class="pillBtn" style="display:flex;align-items:center;gap:6px;">
+                    <img src="{{ asset('icons/panier.png') }}" alt="Panier" width="20" height="20">
+                    Panier
+                </a>
                 <button class="pillBtn">Connexion</button>
             </div>
         </div>
@@ -125,7 +143,7 @@
             <nav class="main-nav">
 
                 <div class="nav-left">
-                    <a href="{{ route('home') }}"><b>Accueil</b></a>
+                    <a href="{{ route('home') }}">Accueil</a>
 
                     {{-- ================= LIBRAIRIE ================= --}}
                     <div class="drop">
@@ -134,18 +152,16 @@
                         <div class="dropdown">
                             <div class="dropdown-grid">
 
-                                {{-- Universitaire --}}
                                 <div class="cat-box">
                                     <div class="cat-title">Universitaire</div>
-                                    <a href="#">Sciences Juridiques & Politiques</a>
-                                    <a href="#">Médecine & Pharmacie</a>
+                                    <a href="#">Sciences Juridiques &amp; Politiques</a>
+                                    <a href="#">Médecine &amp; Pharmacie</a>
                                     <a href="#">Gestion Économie Finance</a>
                                     <a href="#">Sciences Techniques</a>
                                     <a href="#">Agronomie</a>
-                                    <a href="#">Sciences Humaines & Littéraires</a>
+                                    <a href="#">Sciences Humaines &amp; Littéraires</a>
                                 </div>
 
-                                {{-- Autres catégories --}}
                                 <div class="cat-box">
                                     <div class="cat-title">Littérature</div>
                                     <a href="#">Littérature</a>
@@ -172,7 +188,7 @@
                             <div class="cat-box">
                                 <a href="#">Fournitures scolaires</a>
                                 <a href="#">Fournitures de bureau</a>
-                                <a href="#">Sacs & accessoires</a>
+                                <a href="#">Sacs &amp; accessoires</a>
                             </div>
                         </div>
                     </div>
@@ -183,10 +199,10 @@
                         <div class="dropdown" style="width:320px">
                             <div class="cat-box">
                                 <a href="#">Chapelets</a>
-                                <a href="#">Bibles & Corans</a>
+                                <a href="#">Bibles &amp; Corans</a>
                                 <a href="#">Livres de prières</a>
                                 <a href="#">Objets de piété</a>
-                                <a href="#">Images & statues</a>
+                                <a href="#">Images &amp; statues</a>
                             </div>
                         </div>
                     </div>
@@ -196,7 +212,7 @@
                 </div>
 
                 <div class="nav-right">
-                    <a href="{{ route('quisommesnous') }}">Qui sommes‑nous</a>
+                    <a href="{{ route('quisommesnous') }}">Qui sommes-nous</a>
                     <a href="{{ route('contact') }}">Contact</a>
                 </div>
 

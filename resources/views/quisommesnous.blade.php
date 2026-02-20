@@ -57,15 +57,17 @@
       </div>
 
       <div class="card">
-        <div class="body" style="text-align:center;padding:24px;">
-          <div style="font-size:42px;margin-bottom:12px;">🤝</div>
-          <h3 style="margin:0 0 8px;color:var(--g2);">Proximité</h3>
-          <p class="muted">
+    <div class="body" style="text-align:center;padding:24px;">
+        <div style="margin-bottom:12px;">
+            <img src="{{ asset('public/icons/proximite.png') }}" alt="Proximité" width="42" height="42">
+        </div>
+        <h3 style="margin:0 0 8px;color:var(--g2);">Proximité</h3>
+        <p class="muted">
             Un service personnalisé et des conseils avisés dans nos points de vente
             et sur notre plateforme en ligne.
-          </p>
-        </div>
-      </div>
+        </p>
+    </div>
+</div>
 
       <div class="card">
         <div class="body" style="text-align:center;padding:24px;">
